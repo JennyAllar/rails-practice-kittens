@@ -27,5 +27,23 @@ feature 'Kittens' do
     fill_in "Password", with: "password"
     click_on "Login"
   end
+  
+  scenario 'user cannot choose the same category for the same kitten more than once' do
+    user = create_user email: "user@example.com"
+    Category.create!(name: "Cutest!")
+    Kitten.create!(image: "http://i.imgur.com/tOzb0dUb.jpg")
+
+    login(user)
+
+    find(".kitten-link").click
+    select "Cutest!", from: "categorization_category_id"
+    click_on "Add Category"
+
+    find(".kitten-link").click
+    select "Cutest!", from: "categorization_category_id"
+    click_on "Add Category"
+    
+    expect(page).to have_content("Category has already been taken")
+  end
 
 end

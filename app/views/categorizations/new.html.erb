@@ -1,3 +1,9 @@
+<% if @categorization.errors.any? %>
+  <% @categorization.errors.full_messages.each do |message| %>
+    <div id="error_message"><%= message %></div>
+  <% end %>
+<% end %>
+<br>
 <div class="kitten_image">
 <%= image_tag @kitten.image %>
 </div>
