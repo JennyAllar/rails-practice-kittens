@@ -85,3 +85,25 @@ main {
 .kitten {
   margin-bottom: 1em;
 }
+
+.kitten_image {
+  float: left;
+  padding-right: 2%;
+}
+
+.kitten_categories {
+  textarea {
+    width: 100%;
+    height: 3em;
+    margin-bottom: .5em;
+  }
+
+  input[type=submit] {
+    background: dodgerblue;
+    border: 2px solid black;
+    color: white;
+    box-shadow: 2px 2px 4px black;
+  }
+
+  margin-bottom: 2em;
+}
